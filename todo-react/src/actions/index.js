@@ -1,18 +1,14 @@
 
-import { SET_POST_DETAILS, API, ALL_POSTS,REQUEST_POSTS,RECEIVE_POSTS } from "./types";
+import {REQUEST_POSTS,RECEIVE_POSTS } from "./types";
  import axios from "axios";
  export function fetchPostsDetails() {
-
     return function(dispatch,getState) {
-        dispatch(requestPosts());
+       dispatch(requestPosts());
        axios.get("https://jsonplaceholder.typicode.com/posts")
         .then(({ data }) => {
           dispatch(receivePosts(data));
-          console.log('current state:', getState());
-       // dispatch(setPostDetails(data));
       });
     };
-    
   }
 
   export const requestPosts = () => ({ 

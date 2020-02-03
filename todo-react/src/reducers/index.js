@@ -1,8 +1,4 @@
 import {
-    SET_POST_DETAILS,
-    API_START,
-    API_END,
-    FETCH_POST_DETAILS,
     REQUEST_POSTS,
     RECEIVE_POSTS
    
@@ -13,7 +9,6 @@ import {
   };
   
   export default function(state = initialState, action) {
-    console.log("action type => ", action.type);
     switch (action.type) {
       case RECEIVE_POSTS:
         return { ...state,

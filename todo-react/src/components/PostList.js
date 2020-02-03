@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { fetchPostsDetails } from "../actions";
 import Post from './Post';
@@ -11,7 +11,7 @@ const mapStateToProps = ({ datas = [], loading = false }) => ({
   const PostList= (props)=> {
     const { datas, loading } = props;
    useEffect(()=>{
-    props.fetchPostsDetails();
+    fetchPostsDetails();
    },[])
 
  
