@@ -8,11 +8,10 @@ const mapStateToProps = ({ datas = [], loading = false }) => ({
   loading
 });
 
-  const PostList= (props)=> {
-    const { datas, loading } = props;
+  const PostList= ({datas,loading,fetchPostsDetails})=> {
    useEffect(()=>{
     fetchPostsDetails();
-   },[])
+   },[fetchPostsDetails])
 
  
    return (
