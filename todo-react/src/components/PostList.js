@@ -1,17 +1,24 @@
-import React, { useEffect } from 'react';
-import { connect } from "react-redux";
+import React, { useEffect,useState  } from 'react';
+import {useDispatch,useSelector} from "react-redux";
 import { fetchPostsDetails } from "../actions";
 import Post from './Post';
-
+/*
 const mapStateToProps = ({ datas = [], loading = false }) => ({
   datas,
   loading
-});
-
-  const PostList= ({datas,loading,fetchPostsDetails})=> {
+});*/
+ export const PostList= ()=> {
+    
+    
+    const { datas, loading } = useSelector(state => ({
+      datas: state.datas,
+      loading: state.loading,
+    }));
+    const dispatch = useDispatch();
+   
    useEffect(()=>{
-    fetchPostsDetails();
-   },[fetchPostsDetails])
+      dispatch(fetchPostsDetails());
+    },[]);
 
  
    return (
@@ -33,9 +40,5 @@ const mapStateToProps = ({ datas = [], loading = false }) => ({
   </div>
   );
  
-}
+};
 
-  export default connect(
-    mapStateToProps,
-    { fetchPostsDetails }
-  )(PostList);
